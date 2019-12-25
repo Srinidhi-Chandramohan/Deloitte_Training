@@ -1,0 +1,126 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+body{
+overflow-x: hidden;
+}
+.header{
+background-color: #008389;
+padding: 25 50;
+border: 10px;
+}
+.menu{
+background-color: #000;
+height: 50;
+}
+
+
+input[type=text]
+{
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+select {
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+textarea {
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+input[type=date]{
+border-radius: 5;
+background-color: #f0f0f0;
+}
+
+input[type=submit]
+{
+border-radius: 5;
+width: 60%;
+background-color: #6060ff;
+}
+
+input[type=reset]
+{
+border-radius: 5;
+width: 60%;
+background-color: #ff9090;
+}
+
+</style>
+</head>
+<body>
+<div class="row">
+<div class="col-xs-12 header">
+	<img width=100 height=100 src="../images/deloitte.jpg">
+	<font size=7>Deloitte USI</font></div></div>
+
+<div class="row">
+<div class="col-xs-12 menu">
+</div></div>
+	<div class="row">
+<div class="col-xs-12"><center>
+	<form><h3> New Hire Registry</h3></div></div></center>
+	
+
+	<div class="row"><div class="col-xs-2"></div>
+	<div class="col-xs-2">First Name: </div>
+<div class="col-xs-4"><input type=text name='fname' placeholder='First Name' required/></div></div><br><br>
+
+
+	<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">Last Name: </div><div class="col-xs-4"><input type=text name='lname' placeholder='Sur Name' required/><br><br></div></div>
+	
+	
+	<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">DOB: </div><div class="col-xs-4"><input type=date required /><br><br></div></div>
+
+	
+	<div class="row"><div class="col-xs-2"></div>
+	<div class="col-xs-2">Gender: </div><div class="col-xs-4"><input type=radio name='gender' value='male' >Male
+	<input type=radio name='gender' value='female'>Female<br><br></div></div>
+	
+	
+<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">	Address:</div> <div class="col-xs-4"><textarea name='address' rows=5 cols=20></textarea></div></div><br><br>	
+
+<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">State: </div><div class="col-xs-4"><select name='state' >
+<option value='nil'></option>
+<option value='ap'> Andhra Pradesh</option>
+<option value='kn'>Karnataka</option>
+<option value='tn'>Tamilnadu</option>
+<option value='kl'>Kerala</option>
+<option value='mp'>Madhya Pradesh</option>
+<option value='up'>Uttar Pradesh</option>
+<option value='hr'>Haryana</option>
+<option value='wb'>West Bengal</option>
+<option value='pn'>Punjabi</option>
+</select><br><br></div></div>
+
+<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">Languages Known:</div><div class="col-xs-4"><input type=checkbox>English
+	<input type=checkbox name='hind' value='hin'>Hindi
+	<input type=checkbox name='tamil' value='tam' />Tamil
+	<input type=checkbox name='tel' value='tel' >Telugu
+	<input type=checkbox name='mar' value='mar' />Marati
+	<input type=checkbox name='beng' value='kan'/> Kanada
+	<input type=checkbox name='French' value='fre' />French
+<!--	<input type=checkbox name='urd' value='urd' />Urdu
+	<input type=checkbox name='arab' value='arab' />Arabic -->
+	</div></div><br><br>
+	
+<div class="row">
+<div class="col-xs-4"></div><div class="col-xs-2"><input type=submit value='Submit'></div>
+	<div class="col-xs-2"><input type=reset value='Cancel'></div></div>
+
+	<br><br>	</div></div>	
+
+
+</form>
+</body>
+</html>
