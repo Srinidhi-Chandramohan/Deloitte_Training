@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+.header{
+height:300;
+border-style: solid;
+  border-color: black;
+}
+input[type=text]
+{
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+input[type=email]
+{
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+input[type=password]
+{
+border-radius: 5;
+width: 100%;
+background-color: #f0f0f0;
+}
+
+input[type=submit]
+{
+border-radius: 5;
+width: 60%;
+
+}
+input[type=reset]
+{
+border-radius: 5;
+width: 60%;
+
+}
+</style>
+</head>
+<body>
+<div class="row">
+<div class="col-xs-12 header">
+</div></div>
+<br><br><br>
+<div class="row"><div class="col-xs-2"></div>
+	<div class="col-xs-2">Username: </div>
+<div class="col-xs-4"><input type=text name='uname' id="id1" oninput="fn1()"  placeholder='Used Id' required/>
+</div>
+<span id="s1"> </span>
+</div><br><br>
+	<div class="row"><div class="col-xs-2"></div>
+<div class="col-xs-2">Password </div><div class="col-xs-4"><input type=password name='pwd' id="id2" oninput="fn2()"  
+placeholder='Password' required/><br><br></div>
+<span id="s2"> </span>
+</div>
+
+
+<div class="row">
+<div class="col-xs-4"></div><div class="col-xs-2"><input type=submit value='Submit'></div>
+	<div class="col-xs-2"><input type=reset value='Cancel'></div></div>
+	<br><br>	</div></div>	
+</form>
+</body>
+</html>
