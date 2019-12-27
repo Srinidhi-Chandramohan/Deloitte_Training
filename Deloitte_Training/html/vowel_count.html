@@ -1,0 +1,62 @@
+<html>
+<body>
+Vowel Count <br><br>
+
+<input type=text name='vowel' id="v_id" />
+<span id="v_s"></span>	<br><br>
+<span id="re"></span>	<br><br>
+<input type=button onclick="fn()" value="Click here" /><br>
+<br><br>
+
+<input type=text name='vowel' id="v_id1" onfocus="fn1(this)" onblur="fn2(this)"/><br>
+<input type=text name='vowel' id="v_id2" onfocus="fn1(this)" onblur="fn2(this)"/><br>
+
+
+<script>
+function fn()
+ {
+var a=document.getElementById("v_id").value.toLowerCase();
+var c_a=0;
+var e=0;
+var c_i=0;
+var o=0;
+var u=0;
+
+
+for(var i=0;i<=a.length-1;i++)
+{
+if(a[i]=='a')
+    c_a++;
+else if(a[i]=='i')
+       c_i++;
+else if(a[i]=='e')
+              e++;
+else if(a[i]=='o')
+              o++;
+else if(a[i]=='u')
+              u++;
+       
+}
+var tot=a+e+i+o+u;
+document.getElementById("v_s").innerHTML="Count of a"+c_a+"Count of e"+e+
+"Count of i"+c_i+"Count of o"+o+"Count of u"+u+"Toatl" +tot;
+
+}
+
+function fn1(ele)
+ {
+ 
+ele.style.backgroundColor= "#d00";
+}
+function fn2(ele)
+ {
+ 
+ele.style.backgroundColor= "#fff";
+}
+
+
+</script>
+
+</body>
+</html>
+
