@@ -1,0 +1,72 @@
+package com.deloitte.classroom;
+
+import java.util.*;
+
+public class Classroom_demo {
+	
+
+	public static void main(String args[]) {
+
+		Scanner in=new Scanner(System.in);
+		
+	System.out.println("Option 1 to Add a new room"+
+			"Option 2 to search the room"+
+			"Option 3 to display all the rooms"+
+			"Option 4 to allocate all the rooms"+ 
+			"Option 5 to Exit ");
+	int option =in.nextInt();
+	
+	int id;int no_sys;String projector;
+	String ac;String fac;
+	switch(option){
+		
+	case 1:System.out.println("Enter the no of rooms") ;
+		String no_of_room=in.next();
+	
+	break;
+	
+	Classroom rooms[]= new Classroom[Integer.parseInt(no_of_room)];
+
+	for(int i=0;i<rooms.length;i++) {
+	System.out.println("Enter the room Id:");
+	id=in.nextInt();
+	System.out.println("No. of Systems needed:");
+	no_sys=in.nextInt();
+	System.out.println("Is projector needed? (yes/no):");
+	projector=in.next();
+	System.out.println("Ac or Non-Ac:");
+	ac=in.next();
+	System.out.println("Faculty name:");
+	fac=in.next();
+ 
+
+	}break;
+	
+	
+	
+	for(Classroom i:rooms) {
+	Classroom juno=new Classroom();
+	juno.setClss_room_id(id);
+	juno.setNo_of_systems(no_sys);
+	juno.setProjector(Boolean.parseBoolean(projector));
+	juno.setAc(Boolean.parseBoolean(ac));
+	juno.setFaculty(fac);
+	rooms[i] = juno;
+	
+	}
+	
+	case 3:
+	for(Classroom juno:rooms) {
+	System.out.println(juno);	
+	}
+	break;
+	
+	
+	case 5: {
+		System.exit(0);
+	}
+	
+	
+	}
+	}
+

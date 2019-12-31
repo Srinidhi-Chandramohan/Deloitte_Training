@@ -1,0 +1,68 @@
+package com.deloitte.classroom;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class RoomImpl implements Room {
+
+	int classroomId;
+	Scanner sc = new Scanner(System.in);
+	Classroom[] room = null;
+	@Override
+	public Classroom addRoom(String ClassroomId, String ClassroomName, String NumberOfsystems,String Projector) {
+		// TODO Auto-generated method stub
+		Classroom cls = new Classroom();
+		String id = ClassroomId;
+		cls.setClassroomId(Integer.parseInt(id));
+		String name = ClassroomName;
+		cls.setClassroomName(name);
+		String systems = NumberOfsystems;
+		cls.setNumberOfsystems(Integer.parseInt(systems));
+		cls.setProjector(true);
+		return cls;
+		
+		
+	}
+
+	public Classroom searchRoom(int roomId, ArrayList<Classroom> s) {
+		
+				for (Classroom room : s) {
+			if (room.getClassroomId() == roomId) {
+				//System.out.println(c);
+				return room;
+			}
+		                return null;}
+		
+		
+		
+		
+		return null;
+		// TODO Auto-generated method stub
+		
+	
+	}
+
+	@Override
+	public Classroom allocatRoom(int noOfSystems,Classroom[] rooms) {
+		// TODO Auto-generated method stub
+		Classroom[] availableRooms=new Classroom[10];
+		int i=0;
+		
+		for(Classroom c:rooms)
+		{
+			if(c.getNumberOfsystems()>=noOfSystems && c.isOccupied())
+			{
+				availableRooms[i]=c;
+				i++;
+			}
+		}
+		return null;
+	}
+
+	
+	
+	
+	
+
+
+}

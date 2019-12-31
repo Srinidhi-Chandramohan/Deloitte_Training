@@ -1,0 +1,66 @@
+package com.deloitte.classroom;
+
+public class Classroom {
+	
+	
+
+
+@Override
+	public String toString() {
+		return "Classroom [clss_room_id=" + clss_room_id + ", projector=" + projector + ", ac=" + ac
+				+ ", no_of_systems=" + no_of_systems + ", faculty=" + faculty + ", availability=" + availability + "]";
+	}
+int clss_room_id;
+boolean projector;
+boolean ac;
+int no_of_systems;
+String faculty;
+boolean availability;
+public int getClss_room_id() {
+	return clss_room_id;
+}
+public void setClss_room_id(int clss_room_id) {
+	this.clss_room_id = clss_room_id;
+}
+public boolean isProjector() {
+	return projector;
+}
+public void setProjector (boolean projector) {
+	this.projector = projector;
+}
+public boolean isAc() {
+	return ac;
+}
+public void setAc(boolean ac) {
+	this.ac = ac;
+}
+public int getNo_of_systems() {
+	return no_of_systems;
+}
+public void setNo_of_systems(int no_of_systems) {
+	this.no_of_systems = no_of_systems;
+}
+public String getFaculty() {
+	return faculty;
+}
+public void setFaculty(String faculty) {
+	this.faculty = faculty;
+}
+public boolean isAvailability() {
+	return availability;
+}
+public void setAvailability(boolean availability) {
+	this.availability = availability;
+}
+public Classroom(int i, int j, int k, int l, String string) {
+	// TODO Auto-generated constructor stub
+System.out.println(i);
+}
+public Classroom() {
+// TODO Auto-generated constructor stub
+}
+public Classroom(int no_of_room) {
+// TODO Auto-generated constructor stub
+}
+
+}

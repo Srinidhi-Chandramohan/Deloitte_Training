@@ -1,0 +1,38 @@
+package com.deloitte.employee;
+
+import java.util.Scanner;
+
+public class EmployeeDemo {
+
+	public static void main(String args[]) {
+		
+		@SuppressWarnings("resource")
+		Scanner in=new Scanner(System.in);
+		System.out.println("Please enter ur name:");
+		String name=in.next();
+		System.out.println("Please enter ur salary:");
+		String salary=in.next();
+		boolean nameFlag= Utilities.nameValidation(name);
+		boolean salFlag=Utilities.salValidation (salary);
+		
+		
+		if(nameFlag && salFlag){
+		Employee emp = new Employee();
+		emp.setSalary(Double.parseDouble(salary));
+		emp.setDeptId("DC");
+		emp.setEmpId(101);
+		emp.setSalary(25000);
+		emp.setEmpName("Sri");
+		
+
+		System.out.println(emp.getSalary());
+		}
+
+		Employee emp2 = new Employee(102, "Zinat", 25000, "SE");
+		System.out.println(emp2.getEmpId());
+	}
+
+	
+	
+
+}
