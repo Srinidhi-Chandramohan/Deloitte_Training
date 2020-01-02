@@ -1,0 +1,260 @@
+
+
+******Books
+package com.deloitte.library.model;
+
+public class Books {
+
+	
+	private int bookId;
+	private String bookName;
+	private String authorName;
+	private double price;
+		
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Library_pojo [bookId=" + bookId + ", bookName=" + bookName + ", authorName=" + authorName + "]";
+	}
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+	
+	
+}
+
+
+*****BooksDemo
+package com.deloitte.main;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.deloitte.library.model.Books;
+import com.deloitte.library.services.intrfc_impl;
+
+
+
+public class BooksDemo {
+public static void main(String[] args) {
+	Books l=new Books();
+	ArrayList<Books> a=new ArrayList<Books>();
+	intrfc_impl im=new intrfc_impl();
+	Scanner in=new Scanner(System.in);
+	while(true) {
+	int count=0;
+	System.out.println(
+			"1.Add new Book" + "2.Search a Book" +"3.Display all Books"+"4.Exit" );
+	int option=in.nextInt();
+
+	
+		switch(option) {
+	case 1:{
+		System.out.println("No. of books to added:");
+		int n= in.nextInt();
+		int id=0;
+		for(int i=0;i<n;i++) {
+			count++;
+		    id=count;
+		}		
+		System.out.println("Enter Book name:");
+		String name = in.next();
+		System.out.println("Enter the author's name:");
+		String author=in.next();
+		System.out.println("Enter the price:");
+		double price=in.nextDouble();
+		/* boolean p=im.addBooks(id, name, author);
+		if(p) {
+			System.out.println("Added successfully!");
+		}else
+		{
+			System.out.println("!!!!!!!Book not Added");
+		} */
+		
+				im.addBooks(id, name, author,price);
+		
+			
+	}break;
+	
+	case 2:
+		System.out.println("Enter the id of the book ur searching for:");
+		int searchId=in.nextInt();
+		im.dispBookDetail(searchId,a);
+		
+		break;
+		
+	case 3:
+		im.dispAllDetail(a);
+		break;
+		
+	case 4:
+		System.exit(0);
+		break;
+}
+	
+	}	
+}
+}
+
+
+*********intrfc
+package com.deloitte.library.services;
+
+import java.util.ArrayList;
+
+import com.deloitte.library.model.Books;
+
+
+
+public interface Books_intrfc {
+
+	public void addBooks(int id, String name, String author,double price);
+	public void dispBookDetail(int id, ArrayList<Books> a);
+	public void dispAllDetail(ArrayList<Books> a);
+	
+}
+
+
+********intrfc_impl
+
+package com.deloitte.library.services;
+
+import java.util.ArrayList;
+
+import com.deloitte.library.dao.BooksDAO;
+import com.deloitte.library.model.Books;
+
+
+public class intrfc_impl implements Books_intrfc {
+
+	Books l =new Books();
+
+	@Override
+	public void addBooks(int id, String name, String author, double price) {
+		// TODO Auto-generated method stub
+		
+		l.setBookId(id);
+		l.setBookName(name);
+		l.setAuthorName(author);
+		l.setPrice(price);
+		BooksDAO.addBook(l);
+		
+		
+		
+	}
+
+	@Override
+	public void dispBookDetail(int id, ArrayList<Books> a) {
+		// TODO Auto-generated method stub
+		for(Books p:a)
+		{
+			if(id==p.getBookId()) {
+				System.out.println(p);
+			}
+		}
+		
+		
+	}
+
+	@Override
+	public void dispAllDetail(ArrayList<Books> a) {
+		// TODO Auto-generated method stub
+		for(Books p:a)
+		{
+			
+				System.out.println(p);
+			
+		}
+	
+		
+	}
+
+	
+	
+	
+}
+
+
+*********DAO
+
+package com.deloitte.library.dao;
+
+import java.sql.*;
+/*import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;     */
+
+import com.deloitte.library.model.Books;
+ 	public class BooksDAO {
+		public static Connection connectToDB() {
+			Connection connection = null;
+			// Step 1: Register the driver.
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				// Step 2: Create connection
+				connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "admin");
+				return connection;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+		public static void addBook(Books book) {
+			// Step 3: Create statement
+			try {
+
+				// Statement stmt = connectToDB().createStatement();
+
+				Connection con=connectToDB();
+
+				PreparedStatement stmt = con.prepareStatement("insert into book values(?,?,?,?)");
+
+				stmt.setInt(1, book.getBookId());
+
+				stmt.setString(2, book.getBookName());
+
+				stmt.setString(3, book.getAuthorName());
+
+				stmt.setDouble(4, book.getPrice() );
+
+				// Step 4: Execute SQL Query
+
+				int affectedRows = stmt.executeUpdate();
+
+				System.out.println("Affected rows: " + affectedRows);
+				//Step 5:Close Connection
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}

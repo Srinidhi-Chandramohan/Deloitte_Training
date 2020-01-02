@@ -1,0 +1,108 @@
+package com.deloitte.classroom;
+
+import java.util.*;
+
+public class ClassroomDemo {
+
+	public static void main(String args[]) {
+
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Classroom> s=new ArrayList<Classroom>();
+		Classroom[] room = null;
+		String noOfRooms = null;
+		int counter=0;
+		while (true) {
+			System.out.println(
+					"1.Add new room" + "2.Search room" + "3.Display all room" + "4.Allocate the room" + "5.exit");
+
+			String option = sc.next();
+			RoomImpl mainClassObj = new RoomImpl();
+
+			switch (option) {
+
+			case "1":{
+				
+					System.out.println("enter id");
+					String id = sc.next();
+					System.out.println("enter classroom name");
+					String name = sc.next();
+					System.out.println("enter no:of systems");
+					String systems = sc.next();
+					System.out.println("is projector needed");
+					String projector = sc.next();
+					System.out.println("is AC needed");
+					String ac = sc.next();
+					/*
+					 * System.out.println("enter faculty name"); String faculty = sc.next();
+					 */
+
+					/*Classroom c = new Classroom();
+					c.setClassroomId(Integer.parseInt(id));
+					c.setClassroomName(name);
+					c.setNumberOfsystems(Integer.parseInt(systems));
+					c.setProjector(true);
+					 c.setAc(true);*/
+					// c.setFacultyName(faculty);
+					// c.setOccupied(false);
+					// c.setFacultyAvailability(true);
+
+					Classroom c = mainClassObj.addRoom(id, name, systems, projector);
+					s.add(c);
+
+				}
+				break;
+		
+
+			case "2":
+				System.out.println("enter the class id to search");
+				int cls = sc.nextInt();
+				s.contains(mainClassObj.searchRoom(cls));
+				break;
+				
+				
+			case "3":
+				for (Classroom c : room) {
+					System.out.println(c);
+				}
+				int d = Classroom.getCounter();
+				System.out.println("No:of objects:" + d);
+
+				break;
+
+			case "4":
+				System.out.println("enter the minimum no:of systems required");
+				int n = sc.nextInt();
+
+			
+				ArrayList<Classroom> availableRooms = mainClassRoomObj.availableRooms(s);
+				if(availableRooms.size()>=(n)) {
+					for (Classroom aRoom:availableRooms) {
+						for(Classroom roomFromMainList:s) {
+							if(aRoom.getClassroomId() == roomFromMainList.getClassroomId()) {
+								System.out.println("enter the name of faculty required");
+								String nameFac = sc.next();
+								roomFromMainList.setFacultyName(nameFac);
+								
+								roomFromMainList.setOccupied(false);
+								
+								
+							}
+						}
+					}
+						
+				}
+				else
+					System.out.println("No rooms available, Contact Support");
+			
+			break;
+
+			
+
+			
+			  case "5": System.exit(0);
+			 break;
+			}
+			// System.out.println(c);
+		}
+	}
+}
